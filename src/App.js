@@ -1,25 +1,75 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from './components/Navbar';
+import Body from './components/Body';
+import {Provider} from "react-redux";
+import reduxStore from "./utilities/reduxStore"
+import {createBrowserRouter, Outlet} from "react-router-dom";
+import InnerVideoCart from './components/InnerVideoCart';
+
+import { RouterProvider } from 'react-router-dom';
+import NavbarVideoCardContainer from './components/NavbarVideoCardContainer';
+import SearchComponents from './components/SearchComponents';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={reduxStore}>
+    <>
+  
+   {/* <Navbar/> */}
+   {/* <Outlet/> */}
+   <RouterProvider router={appRouter}/>
+  
+
+    </>
+    </Provider >
+  )
+    
+  
 }
 
+
+
+
+
+export const appRouter=createBrowserRouter([
+  {
+      path:"/",
+      element:
+      <>
+      <Navbar/>,
+      <Body/>
+      </>,
+      children:[
+        {
+          path:"/",
+          element:<NavbarVideoCardContainer/>
+        },
+        {
+          path:"/:resId",
+          element:<InnerVideoCart/>
+        },
+        {
+          path:"/:resId/search",
+          element:<InnerVideoCart/>
+        },
+        {
+          path:"/search",
+          element:<SearchComponents/>
+        }
+      
+      ],
+      errorElement:<h1>error</h1>
+  }
+])
+
 export default App;
+
+
+
+
+
+
