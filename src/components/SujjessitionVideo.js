@@ -59,9 +59,9 @@ const SujjessitionVideo=({data1})=>{
                          <div className=" flex  w-full h-full mb-2 gap-1">
            
                                 <div className="w-40  ">
-                                    <Link to={"/"+el.id.videoId}>
+                                    {/* <Link to={"/"+el.id.videoId}> */}
                                         <img className="w-40 h-20 rounded-md" src={el.snippet.thumbnails.high.url} alt=""></img>
-                                    </Link>
+                                    {/* </Link> */}
        
                                 </div>
                                 <div className=" w-full  mt-2 ">

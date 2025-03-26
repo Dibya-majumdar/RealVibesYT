@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const VideosCard=({videos})=>{
-    console.log(videos)
+    // console.log(videos)
     return(
         <div className="m-4 w-[392px] ">
             <Link to={"/"+videos.id}>
